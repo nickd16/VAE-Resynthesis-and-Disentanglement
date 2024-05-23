@@ -39,7 +39,7 @@ class Decoder(nn.Module):
         return F.sigmoid(x)
 
 class VAE(nn.Module):
-    def __init__(self, latent_dim=64):
+    def __init__(self, latent_dim=2):
         super().__init__()
         self.encoder = Encoder(latent_dim)
         self.decoder = Decoder(latent_dim)
@@ -50,8 +50,8 @@ class VAE(nn.Module):
             return self.decoder(x)
         eps = torch.randn((x.shape[0], self.latent_dim), requires_grad=False, device=x.device)
         mean, cov = self.encoder(x)
-        z = mean + (eps * torch.exp(0.5*cov))
-        return self.decoder(z), mean, cov
+        x = mean + (eps * torch.exp(0.5*cov))
+        return self.decoder(x), mean, cov
 
 def main():
     x = torch.randn(64, 1, 28, 28).cuda()
