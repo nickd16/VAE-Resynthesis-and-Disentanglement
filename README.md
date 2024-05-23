@@ -1,5 +1,6 @@
 # VAE-Resynthesis-and-Disentanglement
 Implementation of the Variational Autoencoder (VAE) and exploration of its latent space. This repository was to practice a simple model that implements the VAE algorithm/model. This is in preparation for eventually building diffusion models from scratch. 
+- Will soon implement Resynthesis and Disentanglement for VAE's 
 
 Latent Space Visualization for MNIST:
 
